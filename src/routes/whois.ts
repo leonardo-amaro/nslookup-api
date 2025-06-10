@@ -1,5 +1,6 @@
 import express from 'express';
 import { lookupWhois } from '../utils/whois';
+import { parseWhois } from '../utils/parseWhois';
 
 const router = express.Router();
 
@@ -7,8 +8,10 @@ router.get('/:domain', async (req, res) => {
   const { domain } = req.params;
 
   try {
-    const data = await lookupWhois(domain);
-    res.json({ domain, whois: data });
+    const rawWhois = await lookupWhois(domain);
+    const parsed = parseWhois(rawWhois);
+
+    res.json({ domain, whois: parsed });
   } catch (err: any) {
     res.status(500).json({ error: 'Erro ao consultar WHOIS', detail: err.message });
   }
