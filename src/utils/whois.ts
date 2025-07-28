@@ -9,3 +9,12 @@ export function lookupWhois(domain: string): Promise<string> {
     });
   });
 }
+
+export async function nationalWhois(domain: string) {
+  try {
+    const response = await fetch(`https://rdap.registro.br/domain/${domain}`).then((result) => result.json());
+    return response;
+  } catch (error) {
+    console.error("Erro de consulta Whois Nacional: ", error);
+  }
+}

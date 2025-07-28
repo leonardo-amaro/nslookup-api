@@ -16,3 +16,12 @@ export function parseWhois(raw: string) {
     nameServers: getValues(/Name Server:\s*(.+)/gi),
   };
 }
+
+export function parseWhoisBr(raw: any) {
+  return {
+    domainName: raw.handle,
+    creationDate: raw.events[0].eventDate,
+    lastChange: raw.events[1].eventDate,
+    expiryDate: raw.events[2].eventDate,
+  };
+}
