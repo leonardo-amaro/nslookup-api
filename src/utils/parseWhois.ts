@@ -20,6 +20,7 @@ export function parseWhois(raw: string) {
 export function parseWhoisBr(raw: any) {
   return {
     domainName: raw.handle,
+    registrar: "Registro BR",
     creationDate: raw.events[0].eventDate,
     lastChange: raw.events[1].eventDate,
     expiryDate: raw.events[2].eventDate,
