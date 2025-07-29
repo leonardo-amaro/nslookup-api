@@ -14,7 +14,7 @@ router.get('/:domain', async (req, res) => {
       dns.resolveCname(domain).catch(() => []),
       dns.resolveMx(domain).catch(() => []),
       dns.resolveNs(domain).catch(() => []),
-      dns.reverse(ip),
+      dns.reverse(ip).catch(() => []),
     ]);
 
     res.json({ domain, a, aaaa, cname, mx, ns, ptr });
