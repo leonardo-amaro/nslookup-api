@@ -17,6 +17,16 @@ export function parseWhois(raw: string) {
   };
 }
 
+export function parseWhoisJson(raw: any) {
+  return {
+    domainName: raw.domainName,
+    registrar: raw.registrar,
+    creationDate: raw.creationDate,
+    expirationDate: raw.registryExpiryDate || raw.expiryDate,
+    updatedDate: raw.updatedDate,
+  }
+}
+
 export function parseWhoisBr(raw: any) {
   return {
     domainName: raw.handle,

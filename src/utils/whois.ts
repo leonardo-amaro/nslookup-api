@@ -1,5 +1,6 @@
 // @ts-ignore
 import whois from 'whois';
+import whoisJson from 'whois-json';
 
 export function lookupWhois(domain: string): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -8,6 +9,15 @@ export function lookupWhois(domain: string): Promise<string> {
       resolve(data);
     });
   });
+}
+
+export async function lookupWhoisJson(domain: string) {
+  try {
+    const data = await whoisJson(domain);
+    return data;
+  } catch (error) {
+    console.error('Erro ao buscar WHOIS:', error);
+  }
 }
 
 export async function nationalWhois(domain: string) {

@@ -18,12 +18,14 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "whois": "^2.14.2"
+    "whois": "^2.14.2",
+    "whois-json": "^2.0.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^22.15.30",
+    "@types/whois-json": "^2.0.4",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.3"
   }
